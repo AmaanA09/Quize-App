@@ -79,11 +79,11 @@ function validation() {
   let credantialValid = false;
   let currentUser = null;
   for (let i=0; i<userDetail.length; i++){
-    if(inputEmail === userDetail[i].email){
-      if(inputPassword === userDetail[i].password){
+    if(inputEmail === userDetail[i].email && inputPassword === userDetail[i].password){
+      // if(){
         credantialValid = true;
         currentUser= userDetail[i];
-      }
+      // }
     }
   }
   if(credantialValid){
@@ -354,7 +354,6 @@ function choosedAnswer(optionIndex){
      if(index < 9){
        index++;
        // countNumber++;
-       displayQuestion();
      }
      optionSelected = true;
     }
@@ -362,6 +361,7 @@ function choosedAnswer(optionIndex){
    if(!optionSelected){
     alert("please select any 1 option from 4 option")
    }
+   displayQuestion();
 }
 
 function goToPrevious(){
@@ -391,7 +391,7 @@ function submit(){
     email : userLogedIn.email
   }
 
-  userTest.unshift(usertest);
+  userTest.push(usertest);
   localStorage.setItem("userTest",JSON.stringify(userTest));
 
   window.location.href = "leader-board.html"
@@ -402,7 +402,7 @@ function logOut(){
   window.location.replace("index.html")
 }
 
-function displayLogOut(){
+function UsersLogOut(){
   let logOut = document.getElementById("logout-container");
   if(logOut.style.display === "block"){
     logOut.style.display="none";
@@ -492,6 +492,4 @@ function displayLoggedInUserFirstLetter(){
   // console.log(userName.charAt(0));
   document.getElementById("logedinuser-firstname").innerText = userName.charAt(0);
 }
-
-
 

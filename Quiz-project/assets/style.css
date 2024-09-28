@@ -152,6 +152,11 @@ a{
     padding: 16px 80px;
     height: 72px;
 }
+#quiz-app-header > div > i{
+    margin-left: 30px;
+    font-size: 24px;
+    cursor: pointer;
+}
 /* #quiz-app-header > div > img{
     padding-left: 50px;
 } */
@@ -220,7 +225,6 @@ a{
 #disclaimer-section{
     position: relative;
     padding: 40px;
-    margin-bottom: 133px;
     z-index: 1;
 }
 #disclaimers > h2{
@@ -632,29 +636,214 @@ a{
     display: flex;
 }
 
+/* admin panel header */
+#admin-panel-header{
+    position:fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid  rgba(203, 203, 203, 1);
+    padding: 16px 80px;
+    height: 72px;
+    background-color: #ffffff;
+    width: 100%;
+    z-index: 2;
+}
+#admin-panel-header > div > i{
+    margin-left: 30px;
+    font-size: 24px;
+    cursor: pointer;
+}
+/* admin logout container */
+#admin-logout-container{
+    position: fixed;
+    height: 210px;
+    background-color: #ffffff;
+    border: 3px solid black;
+    right: 40px;
+    padding:0px 40px;
+    z-index: 2;
+    display: none;
+    text-align: center;
+    translate: 0px 73px;
+}
+
+#admin-logout-container > i{
+    font-size: 30px;
+    translate: 27px -14px;
+}
+#admin-logout-container > button{
+    background-color:#F3BD00;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+#admin-header-list{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+#admin-header-list > ul{
+    display: flex;
+    /* padding-right: 110px; */
+}
+
+#admin-header-list > ul > li{
+    list-style: none;
+    padding: 0px 10px;
+    font-weight: bold;
+}
+
+#admin-header-list > img{
+    cursor: pointer;
+}
 
 /* admin panel css */
-#signup-users{
+#admin-panel-section{
+    background-color: #dbd7d2; 
+}
+#admin-panel-section > header{
+    background-color: #ffffff;
+}
+#admin-pages{
     position: relative;
-    padding: 50px;
+    display: flex;
+}
+/* admin users page */
+#users-page{
+    position: relative;
+    background-color: #ffffff;
+    margin: 20px 20px 20px 230px;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+    z-index: 1;
+    translate: 0px 73px;
+}
+#users-table{
+    width: 100%;
 }
 #users-table,thead,tr,th{
-    border: 1px solid black ;
+    border: 1px solid black;
     border-collapse:collapse;
     padding: 8px 20px;
 }
-#users-table,thead,tr{
-    width: 100%;
-}
+
 #users-table > thead{
     background-color: #8E8E93;
 }
 #users-table > tbody > tr > td{
     border: 1px solid black ;
-    border-collapse:collapse;
     padding: 8px 20px;
     font-size: 18px;
     font-weight: 500;
     text-align: center;
 }
+
+/* admin menu bar page */
+
+#admin-page-menu{
+    position: fixed;
+    background-color: #ffffff;
+    width:200px;
+    padding: 40px;
+    height:100%;
+    translate: 0px 73px;
+    z-index: 2;
+}
+#admin-page-menu > div{
+    width: 200px;
+    padding-right: 90px;
+    
+}
+#question-width{
+    width:25%;
+}
+#admin-page-menu > div > div{
+    padding: 8px;
+    margin-left: -20px;  
+    cursor: pointer; 
+}
+#admin-page-menu > div > div > i{
+    font-size: 20px; 
+}
+#admin-page-menu > div > div > a{
+    padding-left: 12px;
+    font-size: 20px;
+    color: black; 
+}
+#admin-page-menu > div > div > a:hover{
+    color: #F3BD00;
+}
+
+/* admin home page */
+#home-page{
+    position: relative;
+    margin: 20px 20px 20px 230px;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+    translate: 0px 73px;
+}
+#home-page > div {
+    display: flex;
+    justify-content: space-around;
+}
+#home-page > div > div{
+    display: flex;
+    width:300px;
+    height: 200px;
+    background-color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+#home-page > div > div > i{
+    font-size: 70px;
+    translate: -10px 0px;
+}
+#home-page > div > div > div{
+    text-align: center;
+}
+#home-page > div > div > div > p{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+/* admin quizes page */
+#Quize-page{
+    position: relative;
+    background-color: #ffffff;
+    margin: 20px 20px 20px 230px;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+    translate: 0px 73px;
+    z-index: 1;
+}
+#quize-table{
+    width: 100%;
+}
+#quize-table,thead,tr,th{
+    border: 1px solid black;
+    border-collapse:collapse;
+    padding: 8px 20px;
+}
+#quize-table > thead{
+    background-color: #8E8E93;
+}
+#quize-table > tbody > tr > td{
+    border: 1px solid black ;
+    padding: 5px;
+    font-size: 18px;
+    text-align: left;
+}
+
+
 
