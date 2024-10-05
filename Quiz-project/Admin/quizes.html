@@ -16,7 +16,11 @@
         <div id="admin-panel-header">
             <div>
                 <img src="../assets/images/techpaathshala-logo.svg" alt="techpaathshsla-logo">
-                <i class="fa-solid fa-bars"></i>
+                <div id="menu-bar" onclick="quizeTableMarginLeft()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
             <div id="admin-header-list">
                 <ul>
@@ -46,14 +50,17 @@
                 </div>
             </div>
         </section>
+        <div id="add-questions" onclick="redirectAddQuestion()">
+            <button type="button"> Add Questions</button>
+        </div>
         <section id="Quize-page">
             <table id="quize-table">
                 <thead>
-                    <tr>
-                        <th>Questions</th>
-                        <th>Option A</th>
-                        <th>Option B</th>
-                    </tr>
+                    <th>Sr.No</th>
+                    <th>Questions</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>view more</th>
                 </thead>
                 <tbody id="Quizes-list">
 
@@ -62,10 +69,9 @@
         </section> 
     </main>
     <script src="assets/script.js"></script>
-    <script src="../assets/script.js"></script>
     <script>
-         userName();
-         displayLoggedInUserFirstLetter()
+        userName();
+        LoggedInUserFirstLetter()
         displayAllQuizes()
     </script>
 </body>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users</title>
+    <title>Let's start quiz app</title>
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -16,7 +16,7 @@
         <div id="admin-panel-header">
             <div>
                 <img src="../assets/images/techpaathshala-logo.svg" alt="techpaathshsla-logo">
-                <div id="menu-bar" onclick="userTableMarginLeft()">
+                <div id="menu-bar" onclick="addQuestionMarginLeft()">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -37,7 +37,7 @@
         </div>
     </header>
     <main id="admin-pages">
-        <section id="admin-page-menu">
+        <section id="admin-page-menu" class="hide-menu">
             <div>
                 <div>
                     <a href="dashboard.html"> <i class="fa-solid fa-house"></i> &nbsp; Home</a>
@@ -50,29 +50,37 @@
                 </div>
             </div>
         </section>
-        <section id="users-page">
-            <table id="users-table">
-                <thead>
-                    <tr>
-                        <th>Sr.No</th>
-                        <th>User Name</th>
-                        <th>User Email ID</th>
-                        <th>No.of Test Given</th>
-                        <th>Scores</th>
-                    </tr>
-                </thead>
-                <tbody id="users-list">
-
-                </tbody>
-            </table>
-    </section>
+        <section id="add-quize-section">
+            <form id="add-question-form">
+                <div>
+                    <label for="question">Question :-</label>
+                    <input type="text" id="question" placeholder="Enter Question">
+                </div>
+                <div>
+                    <label for="option-A">Option A :-</label>
+                    <input type="text" id="option1" placeholder="Enter Option A">
+                </div>
+                <div>
+                    <label for="option-B">Option B :-</label>
+                    <input type="text" id="option2" placeholder="Enter Option B">
+                </div>
+                <div>
+                    <label for="option-C">Option C :-</label>
+                    <input type="text" id="option3" placeholder="Enter Option c">
+                </div>
+                <div>
+                    <label for="Option-D">Option D :-</label>
+                    <input type="text" id="option4" placeholder="Enter Option D">
+                </div>
+                <div>
+                    <label for="Correct-Answer">Correct Answer :-</label>
+                    <input type="text" id="Correct-Answer" placeholder="Enter Correct Answer">
+                </div>
+                <button type="button" onclick="addNewQuizes()">Add Quize</button>
+            </form>
+        </section>
     </main>
     <script src="assets/script.js"></script>
-    <script>
-         userName();
-         LoggedInUserFirstLetter()
-         informationOfUsers();
-    </script>
 </body>
 
 </html>

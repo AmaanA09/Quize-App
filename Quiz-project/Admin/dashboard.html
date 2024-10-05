@@ -16,7 +16,11 @@
         <div id="admin-panel-header">
             <div>
                 <img src="../assets/images/techpaathshala-logo.svg" alt="techpaathshsla-logo">
-                <i class="fa-solid fa-bars"></i>
+                <div id="menu-bar" onclick="hideAndShowMenuBar()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
             <div id="admin-header-list">
                 <ul>
@@ -33,7 +37,7 @@
         </div>
     </header>
     <main id="admin-pages">
-        <section id="admin-page-menu">
+        <section id="admin-page-menu" class="hide-menu">
             <div>
                 <div>
                     <a href="dashboard.html"> <i class="fa-solid fa-house"></i> &nbsp; Home</a>
@@ -46,7 +50,7 @@
                 </div>
             </div>
         </section>
-        <section id="home-page">
+        <section id="home-page" class="margin-moving-left" >
             <div>
                 <div>
                     <i class="fa-solid fa-graduation-cap"></i>
@@ -58,8 +62,8 @@
                 <div>
                     <i class="fa-solid fa-chalkboard-user"></i>
                     <div>
-                        <p>Total Teacher</p>
-                        <p id="teacher-counting"></p>
+                        <p>Total Admin</p>
+                        <p id="admin-counting"></p>
                     </div>
                 </div>
                 <div>
@@ -73,10 +77,10 @@
         </section>
     </main>
     <script src="assets/script.js"></script>
-    <script src="../assets/script.js"></script>
     <script>
          userName();
-         displayLoggedInUserFirstLetter()
+         LoggedInUserFirstLetter()
+         countingStudent()
     </script>
 </body>
 

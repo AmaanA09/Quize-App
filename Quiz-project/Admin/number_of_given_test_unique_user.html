@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users</title>
+    <title>Quizes</title>
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -16,11 +16,6 @@
         <div id="admin-panel-header">
             <div>
                 <img src="../assets/images/techpaathshala-logo.svg" alt="techpaathshsla-logo">
-                <div id="menu-bar" onclick="userTableMarginLeft()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
             </div>
             <div id="admin-header-list">
                 <ul>
@@ -32,46 +27,35 @@
         </div>
         <div id="admin-logout-container">
             <i class="fa-solid fa-sort-up"></i>
-                <div id="logedinuser-firstname"></div>
-                <button type="button" id="logOut-btn" onclick="logOut()">Log out</button>
+            <div id="logedinuser-firstname"></div>
+            <button type="button" id="logOut-btn" onclick="logOut()">Log out</button>
         </div>
     </header>
     <main id="admin-pages">
-        <section id="admin-page-menu">
-            <div>
-                <div>
-                    <a href="dashboard.html"> <i class="fa-solid fa-house"></i> &nbsp; Home</a>
-                </div>
-                <div>
-                    <a href="users.html"> <i class="fa-solid fa-user"></i> &nbsp; Users</a>
-                </div>
-                <div>
-                    <a href="quizes.html"> <i class="fa-solid fa-circle-question"></i> &nbsp; Quize</a>
-                </div>
-            </div>
-        </section>
-        <section id="users-page">
-            <table id="users-table">
+        <section id="quize-details">
+            <table id="quize-details-table">
                 <thead>
                     <tr>
                         <th>Sr.No</th>
-                        <th>User Name</th>
-                        <th>User Email ID</th>
-                        <th>No.of Test Given</th>
-                        <th>Scores</th>
+                        <th>Questions</th>
+                        <th>Option A</th>
+                        <th>Option B</th>
+                        <th>Option C</th>
+                        <th>Option D</th>
+                        <th>Correct Answer</th>
                     </tr>
                 </thead>
-                <tbody id="users-list">
+                <tbody id="quize-body">
 
                 </tbody>
             </table>
-    </section>
+        </section> 
     </main>
     <script src="assets/script.js"></script>
     <script>
-         userName();
-         LoggedInUserFirstLetter()
-         informationOfUsers();
+        userName();
+        LoggedInUserFirstLetter()
+        quizesDetails()
     </script>
 </body>
 

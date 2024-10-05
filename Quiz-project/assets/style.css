@@ -649,17 +649,38 @@ a{
     width: 100%;
     z-index: 2;
 }
-#admin-panel-header > div > i{
+#admin-panel-header > div {
+    display: flex;
+}
+#menu-bar{
     margin-left: 30px;
-    font-size: 24px;
+    width: 20px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 5px;
+    overflow: hidden;
     cursor: pointer;
+}
+#menu-bar > span{
+    background-color: #878a99;
+    width: 100%;
+    height: 2px;
+}
+#menu-bar span:nth-child(2){
+    margin-inline-start: -10px;
+    transition: all 0.3s ease-out;
+}
+#menu-bar:hover span:nth-child(2){
+    margin-inline-start: 0px;
 }
 /* admin logout container */
 #admin-logout-container{
     position: fixed;
     height: 210px;
     background-color: #ffffff;
-    border: 3px solid black;
+    border: 3px solid #878a99;
     right: 40px;
     padding:0px 40px;
     z-index: 2;
@@ -671,6 +692,7 @@ a{
 #admin-logout-container > i{
     font-size: 30px;
     translate: 27px -14px;
+    color: #878a99;
 }
 #admin-logout-container > button{
     background-color:#F3BD00;
@@ -697,6 +719,7 @@ a{
     list-style: none;
     padding: 0px 10px;
     font-weight: bold;
+    color : #444050;
 }
 
 #admin-header-list > img{
@@ -705,7 +728,7 @@ a{
 
 /* admin panel css */
 #admin-panel-section{
-    background-color: #dbd7d2; 
+    background-color: #f8f8fb; 
 }
 #admin-panel-section > header{
     background-color: #ffffff;
@@ -724,25 +747,34 @@ a{
     border-radius: 10px;
     z-index: 1;
     translate: 0px 73px;
+    transition: all 0.4s ease-in-out;
 }
 #users-table{
     width: 100%;
 }
-#users-table,thead,tr,th{
-    border: 1px solid black;
+#users-table,thead,tr{
+    border: 1px solid #EAEAEA;;
     border-collapse:collapse;
-    padding: 8px 20px;
+}
+#users-table > thead > tr > th{
+    padding: 15px 10px;
+    color: #495057;
+    font-size: 20px;
 }
 
 #users-table > thead{
-    background-color: #8E8E93;
+    background-color: #f8f9fd;;
 }
 #users-table > tbody > tr > td{
-    border: 1px solid black ;
-    padding: 8px 20px;
+    /* border: 1px solid black ; */
+    padding: 15px 10px;
     font-size: 18px;
     font-weight: 500;
     text-align: center;
+    color: #878a99;
+}
+#users-table > tbody > tr > td > a{
+    color: #878a99;
 }
 
 /* admin menu bar page */
@@ -750,16 +782,20 @@ a{
 #admin-page-menu{
     position: fixed;
     background-color: #ffffff;
-    width:200px;
+    width: 200px;
     padding: 40px;
     height:100%;
     translate: 0px 73px;
+    /* margin-left: 0px; */
     z-index: 2;
+    transition: all 0.4s ease-in-out;
 }
+/* .hide-menu{
+    margin-left: 0px;
+} */
 #admin-page-menu > div{
     width: 200px;
     padding-right: 90px;
-    
 }
 #question-width{
     width:25%;
@@ -770,12 +806,12 @@ a{
     cursor: pointer; 
 }
 #admin-page-menu > div > div > i{
-    font-size: 20px; 
+    font-size: 18px; 
 }
 #admin-page-menu > div > div > a{
     padding-left: 12px;
-    font-size: 20px;
-    color: black; 
+    font-size: 18px;
+    color: #878a99;
 }
 #admin-page-menu > div > div > a:hover{
     color: #F3BD00;
@@ -784,11 +820,14 @@ a{
 /* admin home page */
 #home-page{
     position: relative;
-    margin: 20px 20px 20px 230px;
+    margin: 20px;
+    margin-right: 20px;
+    margin-left: 230px;
     padding: 20px;
     width: 100%;
     border-radius: 10px;
     translate: 0px 73px;
+    transition: all 0.4s ease-in-out;
 }
 #home-page > div {
     display: flex;
@@ -806,9 +845,11 @@ a{
 #home-page > div > div > i{
     font-size: 70px;
     translate: -10px 0px;
+    color: #878a99;
 }
 #home-page > div > div > div{
     text-align: center;
+    color: #878a99;
 }
 #home-page > div > div > div > p{
     font-size: 20px;
@@ -817,6 +858,7 @@ a{
 }
 
 /* admin quizes page */
+
 #Quize-page{
     position: relative;
     background-color: #ffffff;
@@ -824,26 +866,113 @@ a{
     padding: 20px;
     width: 100%;
     border-radius: 10px;
-    translate: 0px 73px;
     z-index: 1;
+    translate: 0px 134px;
+    transition: all 0.4s ease-in-out;
+}
+/* add questions div */
+#add-questions{
+    position: absolute;
+    margin-top: 90px;
+    padding: 12px;
+    background-color:#495057;
+    z-index: 1;
+    right: 30px;
+    width: 15%;
+    text-align: center;
+    cursor: pointer;
+}
+#add-questions > button{
+    background: none;
+    color: #EAEAEA;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
 }
 #quize-table{
     width: 100%;
 }
-#quize-table,thead,tr,th{
-    border: 1px solid black;
+#quize-table,thead,tr{
+    border: 1px solid #EAEAEA;;
+    border-collapse:collapse;
+}
+#quize-table > thead > tr > th{
+    padding: 15px 10px;
+    color: #495057;
+    font-size: 20px;
+}
+
+#quize-table > thead{
+    background-color: #f8f9fd;;
+}
+#quize-table > tbody > tr > td{
+    /* border: 1px solid black ; */
+    padding: 15px 10px;
+    font-size: 18px;
+    text-align: left;
+    color: #878a99;
+}
+#quize-table > tbody > tr > td > a{
+    color: #878a99;
+}
+
+
+/* quizes details */
+#quize-details{
+    position: relative;
+    background-color: #ffffff;
+    margin: 20px 20px 20px 20px;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+    translate: 0px 73px;
+    z-index: 1;
+}
+#quize-details-table{
+    width: 100%;
+}
+#quize-details > table > thead > tr{
+    border: 1px solid #EAEAEA;
     border-collapse:collapse;
     padding: 8px 20px;
 }
-#quize-table > thead{
+#quize-details-table > thead{
     background-color: #8E8E93;
 }
-#quize-table > tbody > tr > td{
-    border: 1px solid black ;
-    padding: 5px;
+#quize-details-table > tbody > tr > td{
+    /* border: 1px solid black ; */
+    padding: 15px 10px;
     font-size: 18px;
     text-align: left;
 }
+/* add question form */
+#add-quize-section{
+    position: relative;
+    background-color: #ffffff;
+    margin: 100px 30px 20px 230px;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+    z-index: 1;
+    /* translate: 0px 78px; */
+    transition: all 0.4s ease-in-out;
+}
 
 
+#add-question-form{
+    position: relative;
+    padding: 40px;
+}
 
+#add-question-form >div{
+    padding-bottom: 20px;
+}
+
+#add-question-form > div > label{
+    font-size: 24px;
+}
+#add-question-form > div > input{
+    padding: 5px;
+    width: 20%;
+    font-size: 20px;
+}

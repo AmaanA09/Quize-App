@@ -1,3 +1,4 @@
+const displayQuestionsLength = 9;
 // this code use is signup page
 function registration() {
   const name = document.querySelector("#full-name").value;
@@ -134,7 +135,6 @@ function passwordHideShow() {
   }
 }
 // passwordHideShow()
-
 
 // function for for switch dashboard to quize
 function startQuize(){
@@ -308,7 +308,7 @@ console.log(choosedIndex)
   //   if(index < 8){
   //   document.getElementById("countQuestions").innerHTML = questionCountingInNumber;
   //  }
-  if(index == 9){ 
+  if(index == displayQuestionsLength){ 
     document.getElementById("next-btn").innerHTML = `Submit & Continue <img src="assets/images/right-arrow.svg" alt="right-arrow" id="right-arrow">` 
   }
   else{
@@ -344,14 +344,14 @@ function choosedAnswer(optionIndex){
  function goToNext(){
   let selectedRadio = document.querySelectorAll("[name='answer']");
   console.log(selectedRadio)
-  if(index == 9){
+  if(index == displayQuestionsLength){
     submit();
     return;
   }
   let optionSelected = false
   selectedRadio.forEach((checkedOption) =>{
     if(checkedOption.checked){
-     if(index < 9){
+     if(index < displayQuestionsLength){
        index++;
        // countNumber++;
      }
@@ -388,7 +388,8 @@ function submit(){
     questions : choosedQuestion,
     score : score,
     name : userLogedIn.name,
-    email : userLogedIn.email
+    email : userLogedIn.email,
+    date : new Date().toLocaleDateString()
   }
 
   userTest.push(usertest);
@@ -486,7 +487,7 @@ function userIsNotRankSixPosition(){
   }
 }
 
-function displayLoggedInUserFirstLetter(){
+function LoggedInUserFirstLetter(){
   let loggedInUser = JSON.parse(localStorage.getItem("userLogedIn"));
   let userName =loggedInUser.name;
   // console.log(userName.charAt(0));
