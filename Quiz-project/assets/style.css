@@ -741,7 +741,7 @@ a{
 #users-page{
     position: relative;
     background-color: #ffffff;
-    margin: 20px 20px 20px 230px;
+    margin: 20px 20px 20px 220px;
     padding: 20px;
     width: 100%;
     border-radius: 10px;
@@ -822,7 +822,7 @@ a{
     position: relative;
     margin: 20px;
     margin-right: 20px;
-    margin-left: 230px;
+    margin-left: 220px;
     padding: 20px;
     width: 100%;
     border-radius: 10px;
@@ -862,12 +862,12 @@ a{
 #Quize-page{
     position: relative;
     background-color: #ffffff;
-    margin: 20px 20px 20px 230px;
+    margin: 155px 20px 20px 220px;
     padding: 20px;
     width: 100%;
     border-radius: 10px;
     z-index: 1;
-    translate: 0px 134px;
+    /* translate: 0px 134px; */
     transition: all 0.4s ease-in-out;
 }
 /* add questions div */
@@ -896,10 +896,14 @@ a{
     border: 1px solid #EAEAEA;;
     border-collapse:collapse;
 }
+
 #quize-table > thead > tr > th{
     padding: 15px 10px;
     color: #495057;
     font-size: 20px;
+}
+ #question-align{
+    text-align: left;
 }
 
 #quize-table > thead{
@@ -915,17 +919,51 @@ a{
 #quize-table > tbody > tr > td > a{
     color: #878a99;
 }
-
+#quize-table #edit-icon{
+    margin: 0px 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    color: #57b9ff;
+    transition: all 0.1s ease;
+    border-radius: 5px;
+}
+#quize-table #edit-icon:hover{
+    background-color:#57b9ff;
+    color: #ffffff;
+}
+#quize-table #delete-quize{
+    margin: 0px 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    color:  #FF5733 ;
+    transition: all 0.1s ease;
+    border-radius: 5px;
+}
+#quize-table #delete-quize:hover{
+    background-color: #FF5733;
+    color: #ffffff;
+}
+#quize-table #view-icon{
+    margin: 0px 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    color: #57b9ff;
+    transition: all 0.1s ease;
+    border-radius: 5px;
+}
+#quize-table #view-icon:hover{
+    background-color:#57b9ff;
+    color: #ffffff;
+}
 
 /* quizes details */
 #quize-details{
     position: relative;
     background-color: #ffffff;
-    margin: 20px 20px 20px 20px;
+    margin: 100px 20px 20px 20px;
     padding: 20px;
     width: 100%;
     border-radius: 10px;
-    translate: 0px 73px;
     z-index: 1;
 }
 #quize-details-table{
@@ -949,7 +987,7 @@ a{
 #add-quize-section{
     position: relative;
     background-color: #ffffff;
-    margin: 100px 30px 20px 230px;
+    margin: 100px 20px 20px 220px;
     padding: 20px;
     width: 100%;
     border-radius: 10px;
@@ -958,21 +996,49 @@ a{
     transition: all 0.4s ease-in-out;
 }
 
+#add-quize-section > p{
+    font-size: 50px;
+    font-weight: 700;
+}
 
 #add-question-form{
     position: relative;
-    padding: 40px;
+    padding: 20px;
+    margin-top: 10px;
 }
 
 #add-question-form >div{
     padding-bottom: 20px;
 }
-
-#add-question-form > div > label{
-    font-size: 24px;
+#add-question-form > div > div{
+    margin-bottom: 10px;
+}
+#add-question-form > div > div >label{
+    font-size: 26px;
+}
+.star{
+    color: red;
+}
+#question{
+    width: 70% !important;
 }
 #add-question-form > div > input{
     padding: 5px;
-    width: 20%;
+    width: 40%;
     font-size: 20px;
+}
+#option-list{
+    width:40%;
+    padding: 5px;
+    font-size: 20px;
+}
+#add-question-form > button{
+    background-color: #F3BD00;
+    border: none;
+    color: #EAEAEA;
+    padding: 8px;
+    font-size: 18px;
+    width: 20%;
+    margin-top: 10px;
+    cursor: pointer;
 }

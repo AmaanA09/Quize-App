@@ -55,11 +55,11 @@ function hideAndShowMenuBar() {
   // menuBar.marginLeft = "0px";
   if(menuBar.marginLeft === "0px" || menuBar.marginLeft === ""){
     menuBar.marginLeft = "-200px";
-    content.style.marginLeft = "30px";
+    content.style.marginLeft = "20px";
   }else 
   {
     menuBar.marginLeft = "0px";
-    content.style.marginLeft = "230px"
+    content.style.marginLeft = "220px"
   }
   // menuBar.classList.toggle("hide-menu");
 }
@@ -70,11 +70,11 @@ function quizeTableMarginLeft() {
   // menuBar.marginLeft = "0px";
   if(menuBar.marginLeft === "0px" || menuBar.marginLeft === ""){
     menuBar.marginLeft = "-200px";
-    content.style.marginLeft = "30px";
+    content.style.marginLeft = "20px";
   }else 
   {
     menuBar.marginLeft = "0px";
-    content.style.marginLeft = "230px"
+    content.style.marginLeft = "220px"
   }
   // menuBar.classList.toggle("hide-menu");
 }
@@ -86,11 +86,11 @@ function userTableMarginLeft(){
   // menuBar.marginLeft = "0px";
   if(menuBar.marginLeft === "0px" || menuBar.marginLeft === ""){
     menuBar.marginLeft = "-200px";
-    usersContent.style.marginLeft = "30px";
+    usersContent.style.marginLeft = "20px";
   }else 
   {
     menuBar.marginLeft = "0px";
-    usersContent.style.marginLeft = "230px"
+    usersContent.style.marginLeft = "220px"
   }
   // menuBar.classList.toggle("hide-menu");
 }
@@ -101,11 +101,11 @@ function addQuestionMarginLeft(){
   // menuBar.marginLeft = "0px";
   if(menuBar.marginLeft === "0px" || menuBar.marginLeft === ""){
     menuBar.marginLeft = "-200px";
-    addQuizeContent.style.marginLeft = "30px";
+    addQuizeContent.style.marginLeft = "20px";
   }else 
   {
     menuBar.marginLeft = "0px";
-    addQuizeContent.style.marginLeft = "230px"
+    addQuizeContent.style.marginLeft = "220px"
   }
   // menuBar.classList.toggle("hide-menu");
 }
@@ -155,24 +155,22 @@ function displayAllQuizes() {
     
     let tRow = document.createElement("tr");
     tRow.setAttribute("data-qi", i);
-
     tableBody.append(tRow);
+
     let td1 = document.createElement("td");
     td1.style.textAlign = "center";
+    td1.style.width = "10%"
     td1.innerText = `${i + 1}`;
+
     let td2 = document.createElement("td");
     td2.innerHTML = `<p id="display-quize">${allQuizes[i].question}</p>`;
+
     let td3 = document.createElement("td");
     td3.style.textAlign = "center";
-    td3.innerHTML = `<img src="assets/images/edit.png" alt="edit-icon">`;
-    let td4 = document.createElement("td");
-    td4.style.textAlign = "center";
-    td4.style.cursor = "pointer";
-    td4.innerHTML = `<img src="assets/images/dustbin.png" alt="delete-icon" id="delete-quize" onclick="deleteQuize(${i})">`;
-    let td5 = document.createElement("td");
-    td5.style.textAlign = "center";
-    td5.innerHTML = `<a href="quize-details.html"><img src="assets/images/view.png" alt="view-icon"></a>`;
-    tRow.append(td1, td2, td3, td4, td5);
+    td3.style.width = "20%";
+    td3.innerHTML = `<i class="fa-solid fa-pencil" id="edit-icon"></i> <i class="fa-solid fa-trash-can" id="delete-quize" onclick="deleteQuize(${i})"></i> <a href="quize-details.html"><i class="fa-solid fa-eye" id="view-icon"></i></a>`;
+    
+    tRow.append(td1, td2, td3);
   }
 }
 
@@ -220,17 +218,17 @@ function quizesDetails() {
 
 //  add questions and options
 function addNewQuizes(){
-  console.log("hii")
   const quize =JSON.parse(localStorage.getItem("Quizes")) || [];
   const question = document.getElementById("question").value;
-
   const option1 = document.getElementById("option1").value;
   const option2 = document.getElementById("option2").value;
   const option3 = document.getElementById("option3").value;
   const option4 = document.getElementById("option4").value;
-  const answer = document.getElementById("Correct-Answer").value;
+  const answer = document.getElementById("option-list").value;
   console.log(question,option1,option2,option3,option4);
-  
+
+  if(question && option1 && option2 && option3 && option4 && answer){
+
   const addNewQuize = {
     question : question,
     options : [option1, option2, option3, option4],
@@ -241,7 +239,18 @@ function addNewQuizes(){
 
   localStorage.setItem("Quizes" , JSON.stringify(quize));
 
-  return alert("quize is add")
+  alert("quize is add")
+
+  document.getElementById("question").value = "";
+  document.getElementById("option1").value = "";
+  document.getElementById("option2").value = "";
+  document.getElementById("option3").value = "";
+  document.getElementById("option4").value = "";
+  document.getElementById("option-list").selectedIndex = 0;
+
+}else{
+  alert("please fill all the fields")
+}
 }
 // admin logout function
 function adminLogOut() {
@@ -252,3 +261,21 @@ function adminLogOut() {
     logOut.style.display = "block";
   }
 }
+
+function selectOption(){
+    const option1 = document.getElementById("option1").value;
+    const option2 = document.getElementById("option2").value;
+    const option3 = document.getElementById("option3").value;
+    const option4 = document.getElementById("option4").value;
+
+    document.getElementById("select-option1").innerText = option1;
+    document.getElementById("select-option2").innerText = option2;
+    document.getElementById("select-option3").innerText = option3;
+    document.getElementById("select-option4").innerText = option4;
+
+    document.getElementById("select-option1").value = option1;
+    document.getElementById("select-option2").value = option2;
+    document.getElementById("select-option3").value = option3;
+    document.getElementById("select-option4").value = option4;
+  
+  }
