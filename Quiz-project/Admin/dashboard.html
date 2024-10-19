@@ -31,26 +31,30 @@
             </div>
         </div>
        <div id="admin-logout-container">
+        <div>
             <i class="fa-solid fa-sort-up"></i>
                 <div id="logedinuser-firstname"></div>
+                <p id="current-user-name"></p>
+                <p id="current-user-email"></p>  
                 <button type="button" id="logOut-btn" onclick="logOut()">Log out</button>
+            </div>
         </div>
     </header>
     <main id="admin-pages">
         <section id="admin-page-menu" class="hide-menu">
             <div>
                 <div>
-                    <a href="dashboard.html"> <i class="fa-solid fa-house"></i> &nbsp; Home</a>
+                    <a href="dashboard.html"> <i class="fa-solid fa-house"></i>Home</a>
                 </div>
                 <div>
-                    <a href="users.html"> <i class="fa-solid fa-user"></i> &nbsp; Users</a>
+                    <a href="users.html"> <i class="fa-solid fa-user"></i> Users</a>
                 </div>
                 <div>
-                    <a href="quizes.html"> <i class="fa-solid fa-circle-question"></i> &nbsp; Quize</a>
+                    <a href="quizes.html"> <i class="fa-solid fa-circle-question"></i>Quize</a>
                 </div>
             </div>
         </section>
-        <section id="home-page" class="margin-moving-left" >
+        <section id="home-page" >
             <div>
                 <div>
                     <i class="fa-solid fa-graduation-cap"></i>
@@ -80,7 +84,7 @@
     <script>
          userName();
          LoggedInUserFirstLetter()
-         countingStudent()
+        //  countingStudent()
     </script>
 </body>
 

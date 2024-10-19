@@ -81,40 +81,25 @@ function validation() {
   let currentUser = null;
   for (let i=0; i<userDetail.length; i++){
     if(inputEmail === userDetail[i].email && inputPassword === userDetail[i].password){
-      // if(){
         credantialValid = true;
         currentUser= userDetail[i];
-      // }
     }
   }
   if(credantialValid){
     let logedInUser = JSON.stringify(currentUser);
     localStorage.setItem("userLogedIn",logedInUser); 
-    location.replace("dashboard.html")
+    location.href = "dashboard.html"
   }else{
     return alert("user not found");
   }
 
-    // let userMatch = userDetail.some(userDetail => userDetail.email === email && userDetail.password === password);
-    // if(userMatch){
-    //   
-    //   ;
-    // }
-
-  // if(!userMatch){
-  //   return alert("somthing went wrong")
-  // }
-    // const userIsLogedIn = JSON.parse(localStorage.getItem("loginUser"));
-    // const namePrint = document.getElementById("show-user-name");
-    // const userName = userIsLogedIn.name; 
-    // namePrint.innerText =`Hello ${userName}`
     
   };
   // ptintName
   function userName(){
     const loginUser = JSON.parse(localStorage.getItem("userLogedIn"));
-
     let printUserName = document.getElementById("show-user-name");
+
     if(printUserName){
     printUserName.innerHTML = loginUser.name;
     }
@@ -136,11 +121,47 @@ function passwordHideShow() {
 }
 // passwordHideShow()
 
+// start Time 
+let time = null
+
+function increaseTime(){
+  let displayTime = document.getElementById("displayTime");
+  let second = 0;
+  let minute = 0;
+
+  if(second == 0){
+    second++;
+    if(second == 60){
+      second = 0;
+      minute++;
+  }
+}
+  let min = minute < 10 ? "0" + minute : minute
+  let sec = second < 10 ? "0" + second : second
+ displayTime.innerHTML = min +":"+ sec;
+}
+function startTime(){
+  if(time !== null){
+    clearInterval(time);
+    console.log("hi")
+  }
+  time = setInterval(increaseTime,1000);
+}
+
+function stopTime(){
+  clearInterval(time)
+}
+
 // function for for switch dashboard to quize
 function startQuize(){
+  let startTime;
+  startTime = new Date().getTime()
   location.href="Quize-page.html"
-  // displayQuestion()
+  localStorage.setItem("startTime" , JSON.stringify(startTime))
+  // startTime();
 }
+
+
 
 // Quizes
 
@@ -373,6 +394,9 @@ function goToPrevious(){
 }
 
 function submit(){
+  const startTimeOfUser = JSON.parse(localStorage.getItem("startTime"));
+     let stopTime = new Date().getTime();
+     let spentTime = (stopTime - startTimeOfUser ) / 1000;
   let score = 0;
   for(let i=0; i<choosedQuestion.length; i++){
     if(choosedQuestion[i].choosedAnswer == choosedQuestion[i].answer){
@@ -389,17 +413,20 @@ function submit(){
     score : score,
     name : userLogedIn.name,
     email : userLogedIn.email,
-    date : new Date().toLocaleDateString()
+    date : new Date().toDateString(),
+    time : spentTime
   }
 
-  userTest.push(usertest);
+  userTest.unshift(usertest);
   localStorage.setItem("userTest",JSON.stringify(userTest));
 
   window.location.href = "leader-board.html"
+  countTest();
 } 
 
 // log out function//
 function logOut(){
+  localStorage.removeItem("userLogedIn")
   window.location.replace("index.html")
 }
 
@@ -416,6 +443,7 @@ function UsersLogOut(){
 function displayScores() {
 let userTest = JSON.parse(localStorage.getItem("userTest"));
 userTest.sort((a,b) => b.score - a.score);
+console.log(userTest)
   let rank2 = document.getElementById("score-number1")
   let rank1 = document.getElementById("score-number2")
   let rank3 = document.getElementById("score-number3")
@@ -445,6 +473,7 @@ userTest.sort((a,b) => b.score - a.score);
   name4.innerText = userTest[3]?.name || "No User"
   name5.innerText = userTest[4]?.name || "No User"
   name6.innerText = userTest[5]?.name || "No User"
+  console.log(name6)
 }  
 
 function userPosition(){
@@ -482,15 +511,55 @@ function userIsNotRankSixPosition(){
   userTest.sort((a,b) => b.score - a.score);
   for(let i=6; i<userTest.length; i++){
     if(userLogedIn.email == userTest[i].email){
+      console.log(userTest[i].name)
       document.getElementById("user-position-with-name").innerText = `${i+1}`
+      let name6 = document.getElementById("name6");
+      name6.innerText = userTest[i].name
     }
   }
 }
 
 function LoggedInUserFirstLetter(){
   let loggedInUser = JSON.parse(localStorage.getItem("userLogedIn"));
+  let currentUserName = document.getElementById("current-user-name");
+  let currentUserEmail = document.getElementById("current-user-email");
   let userName =loggedInUser.name;
   // console.log(userName.charAt(0));
   document.getElementById("logedinuser-firstname").innerText = userName.charAt(0);
+  currentUserName.innerText = loggedInUser.name;
+  currentUserEmail.innerText = loggedInUser.email
 }
+
+function countTest() {
+  const userTest = JSON.parse(localStorage.getItem("userTest"));
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
+  const currentUser = JSON.parse(localStorage.getItem("userLogedIn"));
+
+  count = 0;
+  for (let i = 0; i < userTest.length; i++) {
+    if (currentUser.email === userTest[i].email) {
+      count++;
+    }
+  }
+
+  for (let i = 0; i < user.length; i++) {
+    if (currentUser.email === user[i].email) {
+      user[i].givenTestOfUser = count;
+      break;
+    }
+  }
+
+  for (let i = 0; i < user.length; i++) {
+    for (let j = 0; j < userTest.length; j++) {
+      if (currentUser.email == user[i].email) {
+        user[i].latestScore = userTest[j].score;
+        console.log(user[i].latestScore);
+      }
+    }
+  }
+
+  localStorage.setItem("user", JSON.stringify(user));
+}
+
 

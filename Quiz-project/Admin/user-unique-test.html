@@ -16,7 +16,7 @@
         <div id="admin-panel-header">
             <div>
                 <img src="../assets/images/techpaathshala-logo.svg" alt="techpaathshsla-logo">
-                <div id="menu-bar" onclick="userTableMarginLeft()">
+                <div id="menu-bar" onclick="testViewMarginLeft()">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -54,28 +54,27 @@
                 </div>
             </div>
         </section>
-        <section id="users-page">
-            <table id="users-table">
-                <thead>
-                    <tr>
-                        <th>Sr.No</th>
-                        <th>User Name</th>
-                        <th>User Email ID</th>
-                        <th>No.of Test Given</th>
-                        <th>Scores</th>
-                    </tr>
-                </thead>
-                <tbody id="users-list">
-
-                </tbody>
-            </table>
+        <section id="unique-test-section">
+            <div id="show-user-crud">
+                <p id="user-name"></p>
+                <span></span>
+                <p id="user-email"></p>
+            </div>
+            <div id="unique-test-header">
+                <p>Test Attempt : <span id="show-test-attempt-count"></span></p>
+                <p>Score : <span id="show-test-score"></span></p>
+                <p>Test Date : <span id="show-test-date"></span></p>
+                <p>Time Taken : <span id="show-test-time-taken"></span></p>
+            </div>
+            <section id="unique-test-quize"></section>
     </section>
     </main>
     <script src="assets/script.js"></script>
     <script>
          userName();
          LoggedInUserFirstLetter()
-         informationOfUsers();
+         showUserNameEmail()
+         uniqueTestOfUser()
     </script>
 </body>
 
